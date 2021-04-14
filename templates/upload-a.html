@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+   <form action={{ url_for('upload') }} method="POST" enctype="multipart/form-data" >
+
+        <div id="file-js" class="file is-medium is-boxed has-name is-centered">
+            <label class="file-label">
+                <input class="file-input" type="file" name="resume">
+                <span class="file-cta">
+                    <span class="file-icon"><i class="fas fa-upload"></i></span>
+                    <span class="file-label">选择文件…</span>
+                </span>
+                <span class="file-name">没有选择文件</span>
+                 <input id="fileUpload" class="button is-link" type="submit" value="提交文件" >
+       </label>
+        </div>
+
+         <script>
+            const url = '{{ url_for('upload') }}';
+            const form = document.querySelector('form');
+            const formData = new FormData()
+
+            const fileInput = document.querySelector('#file-js input[type=file]');
+            fileInput.onchange = () => {
+                if (fileInput.files.length > 0) {
+                  const fileName = document.querySelector('#file-js .file-name');
+                  fileName.textContent = fileInput.files[0].name;
+                  formData.append('file', fileInput.files[0], fileInput.files[0].name)
+                }
+            }
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault()
+                fetch(url, {
+                    method: 'POST', body: formData,redirect:"follow",
+                  }).then((response) => {
+                      console.log(response)
+                       if (response.redirected) {
+                            window.location.href = response.url;
+                    }
+                }).catch(function (err){
+                    console.log(err + "url:" + url);
+                    window.location.href = url
+                })
+            })
+        </script>
+   </form>
+{% endblock %}

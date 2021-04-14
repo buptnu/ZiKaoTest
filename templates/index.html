@@ -1,0 +1,38 @@
+{% extends 'basehead.html' %}
+{% block content %}
+    <div class="container is-max-desktop">
+        <figure class="image m-6">
+            <img src={{ url_for('static',filename='note.jpg') }} alt="考试说明">
+        </figure>
+        <form action={{ url_for('index') }} method="POST" >
+            <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">输入考试信息</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control  has-icons-left">
+                        <input class="input" type="text" name="username" placeholder="输入姓名" autocomplete="off" required>
+                        <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                    </div>
+                    <p class="help">输入你的姓名</p>
+                </div>
+
+                 <div class="field">
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" name="usernum" placeholder="输入准考证号码" autocomplete="off" required>
+                        <span class="icon is-small is-left"><i class="fas fa-id-card"></i></span>
+                    </div>
+                     <p class="help">输入你的准考证号码</p>
+
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-link" type="submit" >登入考试</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+{% endblock %}

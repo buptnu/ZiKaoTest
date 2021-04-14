@@ -1,0 +1,63 @@
+
+{% extends 'basehead.html' %}
+
+{% block navtitle %}
+    <nav class="navbar  is-link is-fixed-top-desktop" role="navigation" aria-label="main navigation">
+        <div class="container is-max-desktop">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#">
+                    <P>北邮自考</P>
+                </a>
+            </div>
+            <div class="navbar-menu">
+            <div class="navbar-start is-left">
+                <div class="navbar-item">
+                    <a class="button is-link" href="{{ url_for('show_note') }}">
+                        <span class="icon"><i class="fas fa-file-powerpoint" aria-hidden="true"></i> </span>
+                        <span>1.考试说明</span>
+                    </a>
+                </div>
+                <div class="navbar-item">
+                    <a class="button is-link " href="{{ url_for('show_exam') }}">
+                       <span class="icon"><i class="fas fa-file" aria-hidden="true"></i> </span>
+                        <span>2.显示考题</span>
+                    </a>
+                </div>
+                <div class="navbar-item">
+                    <a class="button is-link" href="{{ url_for('upload') }}" >
+                        <span class="icon"><i class="fa fa-file-upload" aria-hidden="true"></i> </span>
+                        <span>3.提交结果</span>
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-end is-right">
+              <div class="navbar-item">
+                  <p class="is-primary">
+                      {% if current_user.is_authenticated %}
+                      {{current_user.name}}{{current_user.num }}
+                      {% endif %}
+                  </p>
+              </div>
+            </div>
+         </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block flashmessage %}
+    <br/>
+    <br/>
+    <br/>    <div class="container is-max-desktop">
+         <p class="notification is-warning ">
+            {% for message in get_flashed_messages() %}
+                {{ message }}
+            {% endfor %}
+        </p>
+    </div>
+    <br/>
+{% endblock %}
+
+
+
+{% block content %}{% endblock %}
+

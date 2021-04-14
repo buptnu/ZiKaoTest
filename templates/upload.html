@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container is-max-desktop">
+        <figure class="image">
+            <img src="{{ url_for('static', filename='fileupload.jpg') }}">
+        </figure>
+        <form action={{ url_for('upload') }}  method="POST" enctype="multipart/form-data" >
+            <input type="file" name="file" accept=".docx,.doc" required maxlength="10">
+            <button  type="submit">提交文件</button>
+            <input class="input is-hidden" type=”text” name=”MAX_FILE_SIZE” value=”8192000″ />
+        </form>
+    </div>
+{% endblock %}

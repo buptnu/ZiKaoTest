@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="54c8ef9b-bff4-476a-9299-d0f28f5ca1e7" name="H22">
+        <fileTransfer rootFolder="/home/zzqing" accessType="SFTP" host="218.249.255.22" port="26309" sshConfigId="3cc09a3d-1af1-46df-8ad3-33970b6bb65a" sshConfig="zzqing@218.249.255.22:26309 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

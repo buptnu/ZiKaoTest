@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}北邮自学考试实践考核{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="../static/css/bulma.min.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/fontawesome/css/all.css">
+</head>
+<body>
+
+{% block navtitle %}{% endblock %}
+{% block flashmessage %}{% endblock %}
+{% block content %}{% endblock %}
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        {% block footer %}
+            &copy; 2021 <a href="" title="Written by ZZQing">北京邮电大学网络教育学院自考办公室</a>
+        {% endblock %}
+    </div>
+</footer>
+
+</body>
+</html>
